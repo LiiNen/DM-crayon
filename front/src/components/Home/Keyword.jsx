@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import 'swiper/swiper.scss'; // core Swiper
 import 'swiper/modules/effect-cards/effect-cards.scss';
 import 'swiper/modules/navigation/navigation.scss';
-import { Button, Card, CardHeader, IconButton } from '@mui/material';
+import { Badge, Button, Card, CardHeader, IconButton } from '@mui/material';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import styled from 'styled-components';
 
@@ -96,14 +96,19 @@ export default function ({ keyword }) {
                         }}
                       >
                         <Title>{el2.title}</Title>
-                        <CardHeader
-                          action={
-                            <IconButton aria-label="settings">
-                              <ReadMoreIcon />
-                            </IconButton>
+                        <IconButton
+                          aria-label="settings"
+                          onClick={() =>
+                            window.open(
+                              `https://n.news.naver.com/mnews/article/${el2.company}/${el2.id}?sid=${el2.sid}`
+                            )
                           }
-                          title={el.title}
-                        />
+                        >
+                          <Badge badgeContent={el2.like} color="error" max={999}>
+                            <ReadMoreIcon />
+                          </Badge>
+                        </IconButton>
+                        <div style={{ width: '10px' }} />
                       </Card>
                     ))}
                 </KeywordContainer>
