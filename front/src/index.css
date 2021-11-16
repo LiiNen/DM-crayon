@@ -1,8 +1,14 @@
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
 html,
 body {
   background: #fff;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   color: #000;
   margin: 0;
   padding: 0;
@@ -10,6 +16,7 @@ body {
   height: 100%;
   margin: 0;
   min-width: 500px;
+  min-height: 600px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -26,11 +33,19 @@ code {
   height: 60%;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+  padding: 10px;
+  color: white !important;
+  fill: white !important;
+  stroke: white !important;
+}
+
 .swiper-slide {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border-radius: 18px; */
+  /* border-radius: 10px; */
   font-size: 22px;
   font-weight: bold;
   color: #fff;
