@@ -79,10 +79,9 @@ export default function ({ keyword }) {
       {keyword.map((el, idx) => (
         <SwiperSlide key={idx}>
           <ContentContainer>
-            {open.includes(idx) ? (
-              <>
-                <KeywordContainer style={{ flexGrow: 1 }}>
-                  {el.data
+            <KeywordContainer style={{ flexGrow: 1 }}>
+              {open.includes(idx)
+                ? el.data
                     .sort((a, b) => b.like - a.like)
                     .slice(0, 5)
                     .map((el2, idx2) => (
@@ -110,36 +109,18 @@ export default function ({ keyword }) {
                         </IconButton>
                         <div style={{ width: '10px' }} />
                       </Card>
-                    ))}
-                </KeywordContainer>
-                <KeywordContainer>
-                  <ColorButton
-                    variant="contained"
-                    onClick={e => changeHandler(!e.target.checked, idx)}
-                    checked={open.includes(idx) ? true : false}
-                  >
-                    Go back
-                  </ColorButton>
-                </KeywordContainer>
-              </>
-            ) : (
-              <>
-                <KeywordContainer style={{ flexGrow: 1 }}>
-                  {el.keyword.map((el2, idx2) => (
-                    <Keyword key={idx2}>{el2}</Keyword>
-                  ))}
-                </KeywordContainer>
-                <KeywordContainer>
-                  <ColorButton
-                    variant="contained"
-                    onClick={e => changeHandler(!e.target.checked, idx)}
-                    checked={open.includes(idx) ? true : false}
-                  >
-                    View more
-                  </ColorButton>
-                </KeywordContainer>
-              </>
-            )}
+                    ))
+                : el.keyword.map((el2, idx2) => <Keyword key={idx2}>{el2}</Keyword>)}
+            </KeywordContainer>
+            <KeywordContainer>
+              <ColorButton
+                variant="contained"
+                onClick={e => changeHandler(!e.target.checked, idx)}
+                checked={open.includes(idx) ? true : false}
+              >
+                {open.includes(idx) ? 'Go back' : 'View more'}
+              </ColorButton>
+            </KeywordContainer>
           </ContentContainer>
         </SwiperSlide>
       ))}
