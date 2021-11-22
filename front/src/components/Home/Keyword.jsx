@@ -66,7 +66,6 @@ export default function ({ keyword }) {
       setOpen(open.filter(el => el !== idx));
     }
   };
-  console.log(open);
 
   return (
     <Swiper
