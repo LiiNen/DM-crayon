@@ -5,17 +5,20 @@ import Container from '../components/Container';
 import Keyword from '../components/Home/Keyword';
 
 import tempData from '../Data/temp';
+import searchData from '../Data';
 
 function sortingData(data) {
-  return Object.values(data).sort((a, b) => b.data.length - a.data.length);
+  let res = Object.values(data).sort((a, b) => b.data.length - a.data.length);
+  console.log('res', res);
+  return res;
 }
 
-const searchData = { IT: ['11_1', '11_2', '11_3'], 정치: ['10_1', '10_2'] };
+console.log(searchData);
 
 const Home = () => {
   const [option, setOption] = useState({ category: '', date: '' });
-  const [data, setData] = useState(sortingData(tempData));
-  console.log(option);
+  const [data, setData] = useState(null);
+  console.log(data);
 
   const handleChange = event => {
     event.target.name === 'category'
@@ -25,7 +28,7 @@ const Home = () => {
 
   useEffect(() => {
     if (option.date !== '') {
-      setData(sortingData(tempData));
+      setData(sortingData(searchData[option.category][option.date]));
       console.log('update');
     }
   }, [option]);
@@ -66,7 +69,7 @@ const Home = () => {
               onChange={handleChange}
             >
               {option.category &&
-                searchData[option.category].map((el, idx) => (
+                Object.keys(searchData[option.category]).map((el, idx) => (
                   <MenuItem value={el} key={idx}>
                     {el}
                   </MenuItem>
@@ -75,7 +78,7 @@ const Home = () => {
           </FormControl>
         </Box>
       </Box>
-      <Keyword keyword={data}></Keyword>
+      {data && <Keyword keyword={data}></Keyword>}
     </Container>
   );
 };

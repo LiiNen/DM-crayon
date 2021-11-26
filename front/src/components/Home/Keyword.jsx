@@ -118,7 +118,7 @@ export default function ({ keyword }) {
             ) : (
               <KeywordContainer style={{ flex: 5, justifyContent: 'center' }}>
                 {el.keyword.map((el2, idx2) => (
-                  <Keyword key={idx2}>{el2}</Keyword>
+                  <Keyword key={idx2}>{el2[0]}</Keyword>
                 ))}
               </KeywordContainer>
             )}
