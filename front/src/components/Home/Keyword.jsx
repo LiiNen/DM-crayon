@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SwiperCore, { Mousewheel, Navigation, EffectCards } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import 'swiper/swiper.scss'; // core Swiper
@@ -25,7 +25,7 @@ const KeywordContainer = styled.div`
   overflow-y: auto;
   width: 100%;
   min-height: 0;
-  margin-top: 20px;
+  margin-top: 40px;
   align-items: center;
   justify-content: flex-start;
   gap: 20px;
@@ -71,6 +71,10 @@ export default function ({ keyword }) {
     }
   };
 
+  useEffect(() => {
+    setOpen([]);
+  }, [keyword]);
+
   return (
     <Swiper
       effect={'cards'}
@@ -86,7 +90,7 @@ export default function ({ keyword }) {
               <KeywordContainer style={{ flex: 5 }}>
                 {el.data
                   .sort((a, b) => b.like - a.like)
-                  .slice(0, 5)
+                  .slice(0, 10)
                   .map((el2, idx2) => (
                     <Card
                       key={idx2}
@@ -98,7 +102,7 @@ export default function ({ keyword }) {
                         alignItems: 'center'
                       }}
                     >
-                      <Title class="title">{el2.title}</Title>
+                      <Title>{el2.title}</Title>
                       <IconButton
                         aria-label="settings"
                         onClick={() =>
