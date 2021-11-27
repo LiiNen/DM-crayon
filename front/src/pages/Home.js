@@ -36,7 +36,15 @@ const Home = () => {
   return (
     <Container style={{ maxWidth: '1180px', margin: '0 auto' }}>
       {/* {date ? <Keyword></Keyword> : <h1>Select Date!</h1>} */}
-      <Box sx={{ display: 'flex', gap: 2, width: '50%', justifyContent: 'space-around' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          gap: 2,
+          width: '50%',
+          justifyContent: 'space-around',
+          marginBottom: '40px'
+        }}
+      >
         <Box sx={{ flexBasis: '40%', flexShrink: 0 }}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Category</InputLabel>
