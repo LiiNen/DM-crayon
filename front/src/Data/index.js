@@ -7,10 +7,10 @@ import politics2 from './politics/2021-11-24';
 
 export default {
   IT: {
-    '2021-10-31': IT1,
-    '2021-11-07': IT2,
-    '2021-11-14': IT3,
-    '2021-11-21': IT4
+    '10월_4주차': IT1,
+    '11월_1주차': IT2,
+    '11월_2주차': IT3,
+    '11월_3주차': IT4
   },
-  politics: { '2021-11-16': politics1, '2021-11-24': politics2 }
+  politics: { '11월_2주차': politics1, '11월_3주차': politics2 }
 };
