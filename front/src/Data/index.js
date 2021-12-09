@@ -6,8 +6,8 @@ import IT5 from './it/2021-11-29-24';
 import IT6 from './it/2021-12-05-21';
 import politics1 from './politics/2021-11-16-20';
 import politics2 from './politics/2021-11-24-23';
-import politics2 from './politics/2021-11-30-19';
-import politics2 from './politics/2021-12-07-22';
+import politics3 from './politics/2021-11-30-19';
+import politics4 from './politics/2021-12-07-22';
 
 export default {
   IT: {
